@@ -15,7 +15,13 @@ const server = http.createServer( async (req, res) => {
             res.write(`404 - The country, ${country}, was not found.`)
         }
         else {
-            res.write(JSON.stringify(selected_country_data))
+            selected_country_data.forEach((place) => {
+                res.write(`- Name: ${place.name} \n`)
+                res.write(`- Location: ${place.location} \n`)
+                res.write(`- Continent: ${place.continent} \n`)
+                res.write(`- Open to public: ${place.is_open_to_public ? "Yes" : "No"} \n`)
+                res.write("\n")
+            })
         }
     }
     res.end()
