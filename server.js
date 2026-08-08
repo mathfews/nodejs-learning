@@ -8,6 +8,10 @@ const server = http.createServer( async (req, res) => {
     if ((req.url) === "/api/") {
         res.write(JSON.stringify(data))
     }
+    else if ( (req.url).includes("/api/country/") ) {
+        const country = req.url.split("/")[3].toLowerCase()
+        res.write(country)
+    }
     res.end()
 })
 
