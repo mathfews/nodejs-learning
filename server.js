@@ -10,7 +10,13 @@ const server = http.createServer( async (req, res) => {
     }
     else if ( (req.url).includes("/api/country/") ) {
         const country = req.url.split("/")[3].toLowerCase()
-        res.write(country)
+        const selected_country_data = data.filter(element => element.country.toLowerCase() === country)
+        if (selected_country_data.length === 0) {
+            res.write(`404 - The country, ${country}, was not found.`)
+        }
+        else {
+            res.write(JSON.stringify(selected_country_data))
+        }
     }
     res.end()
 })
