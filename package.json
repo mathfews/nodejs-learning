@@ -1,0 +1,12 @@
+{
+  "name": "nodejs-learning",
+  "version": "1.0.0",
+  "description": "Projects and exercises developed while studying Node.js.",
+  "license": "MIT",
+  "author": "",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
