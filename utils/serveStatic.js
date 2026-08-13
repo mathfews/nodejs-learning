@@ -5,19 +5,11 @@ import { getContentType } from './getContentType.js'
 import { getData } from './getData.js'
 
 export async function serveStatic(req, res, baseDir) {
-  const urlObj = new URL(req.url, `http://${req.headers.host}`)
-
   const publicDir = path.join(baseDir, 'public')
   const filePath = path.join(
     publicDir,
     req.url === '/' ? 'index.html' : req.url
   )
-
-  if (urlObj.pathname == "/api" || req.url == "/api/") {
-    res.setHeader("Content-type", "application/json")
-    res.end(JSON.stringify({data: await getData()}))
-    return
-  }
 
   const ext = path.extname(filePath)
 
