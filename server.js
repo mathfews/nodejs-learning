@@ -7,8 +7,6 @@ const port = 8000
 
 const __dirname = import.meta.dirname
 
-console.log(getData())
-
 const server = http.createServer(async (req, res) => {
     await serveStatic(req, res, __dirname)
 })
