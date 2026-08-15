@@ -15,5 +15,4 @@ export async function addNewSighting(newSighting) {
     } catch (err) {
         console.log(err)
     }
-
 }
